@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-optimize-{{.Iteration}}
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Mangaal/argocd-yaml
+    targetRevision: HEAD
+    path: argocd-1
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd-test-{{.Iteration}}
+  syncPolicy:
+    automated: {}
