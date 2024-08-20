@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
+    kube-burner: argocd-performance-test
     app: bubble-animation
   name: bubble-animation
 spec:

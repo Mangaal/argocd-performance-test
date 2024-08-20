@@ -2,7 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: argocd-role
-  namespace: argocd-test-optimize-{{.Iteration}}
+  namespace: argocd-test-{{.Iteration}}
 rules:
   - apiGroups: [""]
     resources: ["services"]

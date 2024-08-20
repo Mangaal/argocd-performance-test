@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-optimize-{{.Iteration}}
+  name: app-{{.Iteration}}
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/Mangaal/argocd-yaml
+    repoURL: https://github.com/Mangaal/argocd-performance-test
     targetRevision: HEAD
-    path: argocd-1
+    path: test-resources
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd-test-{{.Iteration}}
