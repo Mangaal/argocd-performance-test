@@ -1,12 +1,20 @@
 #!/bin/bash
 
 # Deleting 200 namespaces
-echo "Deleting namespaces..."
+echo "Deleting resources in namespaces..."
 for i in {0..100}; do
   ns_name="argocd-test-$i"
+
+  # Delete the specific deployment and service
+  kubectl delete deployment bubble-animation -n "$ns_name" &
+  kubectl delete service bubble-animation -n "$ns_name" &
+
+  # Delete all pods in the namespace
+  kubectl delete pods -n "$ns_name" --all --force&
+
+  # Delete the namespace
   kubectl delete ns "$ns_name" &
 done
-
 # Wait for all namespace deletions to complete
 wait
 
