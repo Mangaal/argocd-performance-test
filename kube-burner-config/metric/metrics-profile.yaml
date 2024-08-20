@@ -1,24 +1,23 @@
 # Metrics Profile for ArgoCD Performance Testing
 
 # CPU Usage of ArgoCD Application Controller
-- query: irate(process_cpu_seconds_total{container="argocd-application-controller",namespace=~".+"}[1m])
+- query: irate(process_cpu_seconds_total{container="argocd-application-controller",namespace="openshift-gitops"}[1m])
   metricName: argocdAppControllerCPU
 
 # Memory Usage of ArgoCD Application Controller
-- query: go_memstats_heap_alloc_bytes{container="argocd-application-controller",namespace=~".+"}
+- query: go_memstats_heap_alloc_bytes{container="argocd-application-controller",namespace="openshift-gitops"}
   metricName: argocdAppControllerMemory
 
 
 # Number of k8s resource objects in the cache
-- query: sum(argocd_cluster_api_resource_objects{namespace=~".+"})
+- query: sum(argocd_cluster_api_resource_objects{namespace="openshift-gitops"})
   metricName: argocdClusterApiResourceObjects
 
 # Number of monitored Kubernetes API resources
-- query: sum(argocd_cluster_api_resourcesnamespace=~".+") 
+- query: sum(argocd_cluster_api_resources{namespace="openshift-gitops"}) 
   metricName: argocdClusterApiResources
 
 # Cluster cache age in seconds
-- query: sum(argocd_cluster_cache_age_seconds{namespace=~"argocd"})
+- query: sum(argocd_cluster_cache_age_seconds{namespace="openshift-gitop"})
   metricName: argocdClusterCacheAgeSeconds  
 
-#   
