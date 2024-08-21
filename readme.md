@@ -1,6 +1,6 @@
 # ArgoCD Performance Testing with Kube-Burner
 
-This repository contains the configuration used to test ArgoCD's performance when managing multiple  applications across multiple different namespaces on an OpenShift cluster.
+This repository contains the configuration used to test ArgoCD's performance when managing multiple  applications across multiple different namespaces.
 
 ## Prerequisites
 
