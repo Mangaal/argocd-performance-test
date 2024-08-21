@@ -20,9 +20,13 @@
 - query: sum(argocd_cluster_api_resources{namespace="openshift-gitops"}) 
   metricName: argocdClusterApiResources
 
+# Total IO Operations of ArgoCD Application Controller
+- query: sum(rate(container_fs_reads_total{pod=~"openshift-gitops-application-controller-.*",namespace="openshift-gitops"}[1m])) + sum(rate(container_fs_writes_total{pod=~"argocd-application-controller-.*",namespace=~"openshift-gitops"}[1m]))
+  metricName: argocdAppControllerIO
+  
 
 #  ArgoCD Pending Kubectl Exec
-- query: sum(argocd_kubectl_exec_pending{namespace=~".+"}) by (command)
+- query: sum(argocd_kubectl_exec_pending{namespace=~".+"})
   metricName: argocdPendingKubectlExec
 
 
