@@ -2,6 +2,11 @@
 
 This repository contains the configuration used to test ArgoCD's performance when managing 100 applications across 100 different namespaces on an OpenShift cluster.
 
+## Prerequisites
+
+- **ArgoCD Installation**: Ensure that ArgoCD is installed and configured in your cluster.
+- **OpenShift Cluster**: This setup is designed to run on an OpenShift cluster, but any Kubernetes-like environment should work.
+
 ## Why Use Kube-Burner?
 
 [Kube-Burner](https://kube-burner.github.io/kube-burner/latest/) is a versatile tool that not only creates resources but also waits for them to reach a desired state and collects relevant metrics. This capability is particularly useful for performance testing and benchmarking.
