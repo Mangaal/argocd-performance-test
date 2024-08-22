@@ -5,8 +5,8 @@ metadata:
   namespace: argocd-test-{{.Iteration}}
 subjects:
   - kind: ServiceAccount
-    name: openshift-gitops-argocd-application-controller
-    namespace: openshift-gitops
+    name: <application-controller-service-account-name>
+    namespace: <argocd-namespace>
 roleRef:
   kind: Role
   name: argocd-role

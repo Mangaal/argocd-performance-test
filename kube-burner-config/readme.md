@@ -3,13 +3,13 @@
 kube-burner-config/metric/metrics-profile.yaml
 This file contains the metrics profile for ArgoCD performance testing, capturing key metrics such as:
 
-CPU Usage of ArgoCD Application Controller:
+***CPU Usage of ArgoCD Application Controller:***
 ```
 - query: irate(process_cpu_seconds_total{container="argocd-application-controller",namespace=~".+"}[1m])
   metricName: argocdAppControllerCPU
 ```
 
-Memory Usage of ArgoCD Application Controller:
+***Memory Usage of ArgoCD Application Controller:***
 ```
 - query: go_memstats_heap_alloc_bytes{container="argocd-application-controller",namespace=~".+"}
   metricName: argocdAppControllerHeapAllocMemory
@@ -18,17 +18,17 @@ Memory Usage of ArgoCD Application Controller:
   metricName: argocdAppControllerHeapInuseMemory
 ```
 
-Number of Kubernetes Resource Objects in the Cache:
+***Number of Kubernetes Resource Objects in the Cache:***
 ```
 - query: sum(argocd_cluster_api_resource_objects{namespace=~".+"})
   metricName: argocdClusterApiResourceObjects
 ```
-Number of Monitored Kubernetes API Resources:
+***Number of Monitored Kubernetes API Resources:***
 ```
 - query: sum(argocd_cluster_api_resources{namespace=~".+"}) 
   metricName: argocdClusterApiResources
 ```
-Total IO Operations of ArgoCD Application Controller:
+***Total IO Operations of ArgoCD Application Controller:***
 ```
 - query: sum(rate(container_fs_reads_total{pod=~"openshift-gitops-application-controller-.*",namespace=~".+"}[1m])) + sum(rate(container_fs_writes_total{pod=~"openshift-gitops-application-controller-.*",namespace=~".+"}[1m]))
   metricName: argocdAppControllerIO
@@ -41,13 +41,13 @@ ArgoCD Pending Kubectl Exec:
 ### kube-burner-config/template
 This directory contains several template files necessary for the test setup:
 
-application.yaml: ArgoCD application template.
+***application.yaml***: ArgoCD application template.
 
-namespace.yaml: ArgoCD application destination namespace template.
+***namespace.yaml***: ArgoCD application destination namespace template.
 
-role.yaml: ArgoCD application controller role template in the destination namespace.
+***role.yaml***: ArgoCD application controller role template in the destination namespace.
 
-rolebinding.yaml: ArgoCD application controller rolebinding template in the destination namespace.
+***rolebinding.yaml***: ArgoCD application controller rolebinding template in the destination namespace.
 
 ### Template Customization
 
