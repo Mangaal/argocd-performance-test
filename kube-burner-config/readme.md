@@ -53,14 +53,14 @@ This directory contains several template files necessary for the test setup:
 
 Before deploying, you need to update some fields in the YAML files located in the kube-burner-config/template directory:
 
-application.yaml: Update the namespace field with ```<argocd-namespace>```.
+***application.yaml:*** Update the namespace field with ```<argocd-namespace>```.
 
-namespace.yaml:
+***namespace.yaml:***
 ```
 labels:
   argocd.argoproj.io/managed-by: <argocd-namespace>
 ```
-rolebinding.yaml: Update the following fields:
+***rolebinding.yaml:*** Update the following fields:
 ```
 subjects:
   - kind: ServiceAccount
