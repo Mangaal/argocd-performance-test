@@ -21,7 +21,7 @@
   metricName: argocdClusterApiResources
 
 # Total IO Operations of ArgoCD Application Controller
-- query: sum(rate(container_fs_reads_total{pod=~"openshift-gitops-application-controller-.*",namespace=~".+"}[1m])) + sum(rate(container_fs_writes_total{pod=~"argocd-application-controller-.*",namespace=~".+"}[1m]))
+- query: sum(rate(container_fs_reads_total{pod=~"openshift-gitops-application-controller-.*",namespace=~".+"}[1m]))+ sum(rate(container_fs_writes_total{pod=~"openshift-gitops-application-controller-.*",namespace=~".+"}[1m]))
   metricName: argocdAppControllerIO
   
 
