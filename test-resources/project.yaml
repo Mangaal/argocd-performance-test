@@ -1,6 +1,8 @@
 apiVersion: project.openshift.io/v1
 kind: Project
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: ServerSideApply=true
   name: test
 spec:
   displayName: Example Project
