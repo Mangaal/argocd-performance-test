@@ -3,6 +3,4 @@ kind: Project
 metadata:
   labels:
     argocd.argoproj.io/managed-by: openshift-gitops
-  annotations:
-    argocd.argoproj.io/sync-options: ServerSideApply=true
   name: test
