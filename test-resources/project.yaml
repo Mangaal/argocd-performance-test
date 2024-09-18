@@ -2,6 +2,5 @@ apiVersion: project.openshift.io/v1
 kind: Project
 metadata:
   labels:
-    app.kubernetes.io/instance: app-1
     argocd.argoproj.io/managed-by: openshift-gitops
   name: test
